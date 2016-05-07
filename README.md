@@ -6,6 +6,7 @@
 
 ### Usage
 
+* `docker-machine start`
 * `git clone https://github.com/fabiocognigni/vertx-helloworld.git`
 * `cd vertx-helloworld`
 * `./build-run-container.sh`
