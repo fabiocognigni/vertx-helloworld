@@ -10,6 +10,6 @@
 * `git clone https://github.com/fabiocognigni/vertx-helloworld.git`
 * `cd vertx-helloworld`
 * `./build-run-container.sh`
-* `curl -i http://$(docker-machine ip):8080`
+* `curl -i http://$(docker-machine ip):8080/hello`
 
 
