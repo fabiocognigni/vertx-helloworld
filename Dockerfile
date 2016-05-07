@@ -1,16 +1,16 @@
-# Extend vert.x image
-FROM vertx/vertx3
+FROM java:8
 
-ENV VERTICLE_NAME com.fabero.HelloWorldVerticle
-ENV VERTICLE_FILE target/vertx-helloworld-1.0-SNAPSHOT.jar
+ENV VERTICLE_FILE vertx-helloworld-1.0-SNAPSHOT-fat.jar
 
+# Set the location of the verticles
 ENV VERTICLE_HOME /usr/verticles
 
 EXPOSE 8080
 
-COPY $VERTICLE_FILE $VERTICLE_HOME/
+# Copy your fat jar to the container
+COPY target/$VERTICLE_FILE $VERTICLE_HOME/
 
 # Launch the verticle
 WORKDIR $VERTICLE_HOME
 ENTRYPOINT ["sh", "-c"]
-CMD ["vertx run $VERTICLE_NAME -cp $VERTICLE_HOME/*"]
+CMD ["java -jar $VERTICLE_FILE"]
